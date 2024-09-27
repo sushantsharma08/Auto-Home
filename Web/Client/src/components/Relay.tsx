@@ -4,12 +4,21 @@ import axios from "axios";
 
 const Relay = () => {
 
-    const { isLoading, error, data: Relay } = useQuery({
+    const { isLoading, error, data: Relay,refetch } = useQuery({
         queryKey: ['key'],
         queryFn: () => {
             return axios.get('https://auto-home-orcin.vercel.app/relay/relayStatus')
         }
     });
+
+    // const { isLoading, error, data: Relay } = useQuery(
+    //     'querykey',
+    //     () => {
+    //         return axios.get('https://auto-home-orcin.vercel.app/relay/relayStatus')
+    //     },{
+    //         refetchInterval:
+    //     }
+    // );
 
 
     const TurnOn = (e: any) => {
@@ -19,7 +28,10 @@ const Relay = () => {
         relayStatus[e.target.id] = 0;
         axios.patch('https://auto-home-orcin.vercel.app/relay/updateRelay', {
             relayStatus
+        }).then(()=>{
+            refetch();
         })
+        // refetch();
     }
 
     const TurnOff = (e: any) => {
@@ -29,7 +41,11 @@ const Relay = () => {
         relayStatus[e.target.id] = 1;
         axios.patch('https://auto-home-orcin.vercel.app/relay/updateRelay', {
             relayStatus
+        }).then(()=>{
+            refetch();
         })
+        // refetch();
+
     }
 
     if (isLoading) {
@@ -47,10 +63,10 @@ const Relay = () => {
             </>
         )
     }
-    console.log(Relay?.data.relayStatus);
-
+ 
     return (
-        <section>
+        <section style={{border:"1px solid red", display:"flex",flexDirection:"column",alignItems:"center"}}>
+            <div>
             {Relay?.data.relayStatus.map((relay: any, index: any) =>
                 <div key={index} id={index}>
                     <span><h2>Device id : {index+1}</h2></span>
@@ -64,6 +80,8 @@ const Relay = () => {
                     }
                 </div>
             )}
+            </div>
+
 
         </section>
     )
