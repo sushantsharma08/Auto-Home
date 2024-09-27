@@ -7,6 +7,7 @@ const Relay = () => {
     const { isLoading, error, data: Relay,refetch } = useQuery({
         queryKey: ['key'],
         queryFn: () => {
+            // return axios.get('localhost:8000/relay/relayStatus')
             return axios.get('https://auto-home-orcin.vercel.app/relay/relayStatus')
         }
     });
@@ -27,6 +28,7 @@ const Relay = () => {
         let relayStatus = Relay?.data.relayStatus;
         relayStatus[e.target.id] = 0;
         axios.patch('https://auto-home-orcin.vercel.app/relay/updateRelay', {
+        // axios.patch('localhost:8000/relay/updateRelay', {
             relayStatus
         }).then(()=>{
             refetch();
@@ -40,6 +42,8 @@ const Relay = () => {
         let relayStatus = Relay?.data.relayStatus;
         relayStatus[e.target.id] = 1;
         axios.patch('https://auto-home-orcin.vercel.app/relay/updateRelay', {
+        // axios.patch('localhost:8000/relay/updateRelay', {
+
             relayStatus
         }).then(()=>{
             refetch();
@@ -71,10 +75,10 @@ const Relay = () => {
                 <div key={index} id={index}>
                     <span><h2>Device id : {index+1}</h2></span>
                     {relay == 1 ?
-                        <button id={index.toString()}
+                        <button className="deviceBtn turnOn" id={index.toString()}
                             onClick={e => TurnOn(e)} >
                             Turn On</button> :
-                        <button id={index.toString()}
+                        <button className="deviceBtn turnOff" id={index.toString()}
                             onClick={e => TurnOff(e)} >
                             Turn Off</button>
                     }

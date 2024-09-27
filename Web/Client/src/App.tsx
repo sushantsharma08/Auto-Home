@@ -7,11 +7,14 @@ const queryClient = new QueryClient();
 function App() {
 
   return (
-    <QueryClientProvider client={queryClient}>
-    <div>
-      <Relay/>
+    <div className='app'>
+      <QueryClientProvider client={queryClient}>
+        <div>
+          <Relay />
+        </div>
+      </QueryClientProvider>
     </div>
-    </QueryClientProvider>
+
 
   )
 }

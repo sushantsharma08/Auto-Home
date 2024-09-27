@@ -1,0 +1,18 @@
+/* .app{ */
+/* } */
+.deviceBtn{
+ padding: 0.5rem;
+ outline: none;
+ border-radius: 20px;
+ transition: 1s ;
+} 
+.turnOn{
+ background-color: greenyellow;
+ border: 2px solid green;
+
+}
+.turnOff{
+background-color: rgb(255, 11, 11);
+border: 2px solid rgb(128, 9, 0);
+
+}

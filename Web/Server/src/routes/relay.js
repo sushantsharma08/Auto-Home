@@ -24,6 +24,25 @@ router.post("/add_relay", async (req, res) => {
         .catch(err => res.json(err));
 });
 
+router.post("/add_relayDevice", async (req, res) => {
+    const {
+        relayDevices
+    } = req.body;
+
+    const RelayDeviceModule = await HomeRelayModel.findOne({ relayDevices });
+    if (RelayDeviceModule) {
+        return res.json({ status: 400, message: "Relay already exists" });
+    }
+
+    const newRelayDeviceModule = new HomeRelayModel({
+        relayDevices
+    });
+
+    await newRelayDeviceModule.save()
+        .then(() => res.json({ status: 201, message: 'client added' }))
+        .catch(err => res.json(err));
+});
+
 router.get("/relayStatus", async (req,res)=>{
     try {
         const relay = await HomeRelayModel.find({});
@@ -37,7 +56,7 @@ router.get("/relayStatus", async (req,res)=>{
 router.patch("/updateRelay", async (req, res) => {
     // const { relayStatus } = req.body;
     try {
-        const relayModule = await HomeRelayModel.findOneAndUpdate({_id: '66db981e9a3860a328919b8b'}, req.body
+        const relayModule = await HomeRelayModel.findOneAndUpdate({_id: '66f652045e49e46330c4f0b9'}, req.body
         );
         res.json({ status: 202, message: "Updated Relay Successfully", module: relayModule })
     } catch (error) {
