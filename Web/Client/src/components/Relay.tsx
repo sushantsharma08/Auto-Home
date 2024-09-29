@@ -72,7 +72,7 @@ const Relay = () => {
             <div>
                 {Relay?.data.relayStatus.map((relay: any, index: any) =>
                     <div key={index} id={index}>
-                        <span><h2>Device id : {index + 1}</h2></span>
+                        <span><h2>{Relay?.data.relayDevices[index]}</h2></span>
                         {relay == 1 ?
                             <button className="deviceBtn turnOn" id={index.toString()}
                                 onClick={e => TurnOn(e)} >
