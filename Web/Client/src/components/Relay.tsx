@@ -23,7 +23,7 @@ const Relay = () => {
 
 
     const TurnOn = (e: any) => {
-        console.log(e);
+        // console.log(e);
         // res[e.target.id] = 0;
         let relayStatus = Relay?.data.relayStatus;
         relayStatus[e.target.id] = 0;
@@ -32,8 +32,8 @@ const Relay = () => {
             relayStatus
         }).then(() => {
             refetch();
-        })
-        // refetch();
+        });
+        AddPing(e.target.id);
     }
 
     const TurnOff = (e: any) => {
@@ -46,10 +46,19 @@ const Relay = () => {
             relayStatus
         }).then(() => {
             refetch();
-        })
-        // refetch();
+        });
+        AddPing(e.target.id);
+    }
+
+    const AddPing = (id:any)=>{
+
+        document.getElementById(id)?.classList.add("ping");
+        setTimeout(() => {
+        document.getElementById(id)?.classList.remove("ping");
+        },10000);
 
     }
+
 
     if (isLoading) {
         return (
@@ -71,17 +80,25 @@ const Relay = () => {
         <section style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <div>
                 {Relay?.data.relayStatus.map((relay: any, index: any) =>
-                    <div key={index} id={index}>
-                        <span><h2>{Relay?.data.relayDevices[index]}</h2></span>
-                        {relay == 1 ?
-                            <button className="deviceBtn turnOn" id={index.toString()}
-                                onClick={e => TurnOn(e)} >
-                                Turn On</button> :
-                            <button className="deviceBtn turnOff" id={index.toString()}
-                                onClick={e => TurnOff(e)} >
-                                Turn Off</button>
-                        }
-                    </div>
+                    <>
+
+                        <div style={{textAlign:"center"}}><h2>{Relay?.data.relayDevices[index]}</h2></div>
+                        <div key={index} 
+                        style={{ height:"150px",display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}
+                        >
+                            {relay == 1 ?
+                                <button className="deviceBtn turnOn " id={index.toString()}
+                                    onClick={e => TurnOn(e)} >
+                                    Turn On
+                                </button>
+                                :
+                                <button className="deviceBtn turnOff " id={index.toString()}
+                                    onClick={e => TurnOff(e)} >
+                                    Turn Off
+                                </button>
+                            }
+                        </div>
+                    </>
                 )}
             </div>
 
