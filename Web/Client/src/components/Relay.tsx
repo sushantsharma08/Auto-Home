@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
+const Origin = 'auto-home-orcin.vercel.app'
 
 const Relay = () => {
 
@@ -8,27 +9,15 @@ const Relay = () => {
         queryKey: ['key'],
         queryFn: () => {
             // return axios.get('localhost:8000/relay/relayStatus')
-            return axios.get('https://auto-home-orcin.vercel.app/relay/relayStatus')
+            return axios.get(`https://${Origin}/relay/relayStatus`)
         }
     });
 
-    // const { isLoading, error, data: Relay } = useQuery(
-    //     'querykey',
-    //     () => {
-    //         return axios.get('https://auto-home-orcin.vercel.app/relay/relayStatus')
-    //     },{
-    //         refetchInterval:
-    //     }
-    // );
-
-
     const TurnOn = (e: any) => {
-        // console.log(e);
-        // res[e.target.id] = 0;
         let relayStatus = Relay?.data.relayStatus;
         relayStatus[e.target.id] = 0;
         // axios.patch('localhost:8000/relay/updateRelay', {
-        axios.patch('https://auto-home-orcin.vercel.app/relay/updateRelay', {
+        axios.patch(`https://${Origin}/relay/updateRelay`, {
             relayStatus
         }).then(() => {
             refetch();
@@ -42,7 +31,7 @@ const Relay = () => {
         let relayStatus = Relay?.data.relayStatus;
         relayStatus[e.target.id] = 1;
         // axios.patch('localhost:8000/relay/updateRelay', {
-        axios.patch('https://auto-home-orcin.vercel.app/relay/updateRelay', {
+        axios.patch(`https://${Origin}/relay/updateRelay`, {
             relayStatus
         }).then(() => {
             refetch();

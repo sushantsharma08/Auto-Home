@@ -5,8 +5,6 @@ import * as dotenv from "dotenv";
 import { HomePartnerModel } from "../models/HomieRouter.js";
 const router = express.Router();
 
-// dotenv.config();
-
 // creating homePartner
 router.post("/register",async (req,res)=>{
     const{name,username,password}=req.body;
@@ -18,7 +16,7 @@ router.post("/register",async (req,res)=>{
         return res.json({status:400,message:"Home Parter Already Exists!"});
     }
     // need to get hash no. from env file.
-    const hashedPassword = await bcrypt.hash(password,10);
+    const hashedPassword = await bcrypt.hash(password,Number(process.env.HASH));
     const newuser = new HomePartnerModel({name,username,password:hashedPassword});
     await newuser.save();
     res.json({status:201,message:"user registered"});
