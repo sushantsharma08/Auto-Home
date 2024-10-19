@@ -1,4 +1,5 @@
 .env
 node_modules
 vars
-.DS-store
+.DS_Store
+Web/.DS_Store
