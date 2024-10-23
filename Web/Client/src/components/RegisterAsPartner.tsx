@@ -113,7 +113,7 @@ const RegisterAsPartner = () => {
           </div>
 
           <div className="input-group">
-            <label htmlFor="home_id">Home ID</label>
+            <label htmlFor="home_id">Home ID (for connection to home environment) </label>
             <input
               type="text"
               id="home_id"

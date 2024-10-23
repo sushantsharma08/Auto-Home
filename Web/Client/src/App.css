@@ -1,15 +1,23 @@
 .app {
     height: 100vh;
 }
-.navbar div{
+
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar div {
     padding-inline: 20px;
     padding-block: 10px;
 }
+
 .navItem {
     color: white;
-    font-style:none;
+    font-style: none;
     text-decoration: none;
 }
+
 .mainSection {
     margin-inline: 20px;
     border-inline: 2px solid;
@@ -17,10 +25,10 @@
     border-color: rgb(91, 91, 91);
     padding: 10px;
     padding-block: 50px;
-    min-height: 90%;
+    /* min-height: 90%; */
 }
 
-/* Registration section */
+/* Registration/login section */
 .header {
     margin-top: 150px;
     display: flex;
@@ -49,7 +57,13 @@
     color: #b0b0b0;
     padding-inline: 25px;
     padding-block: 10px;
-    transition: border 0.3s ease;
+    transition: 0.3s ease;
+}
+
+.account_type a:hover {
+    box-shadow: 0 4px 16px rgba(209, 166, 255, 0.833);
+    background-color: rgb(101, 78, 219);
+    color: #1e1e1e;
 }
 
 .about {
@@ -58,6 +72,8 @@
     text-align: justify;
     padding-top: 20px;
     /* border: 1px solid red; */
+    transition: display 1s ease;
+    margin-top: 10px;
 }
 
 .container {
@@ -65,6 +81,7 @@
     justify-content: center;
     /* align-items: center; */
     padding: 20px;
+    /* margin: 20px; */
 }
 
 .form-box {
@@ -74,7 +91,7 @@
     box-shadow: 0 4px 8px rgba(138, 98, 181, 0.396);
     width: 100%;
     max-width: 400px;
-
+    margin-top: 50px;
 }
 
 .input-group {
@@ -214,7 +231,7 @@
     }
 }
 
-/* body,
-html {
-    height: 100%;
-} */
+
+/* add twinkles  */
+
+

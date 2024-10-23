@@ -20,8 +20,8 @@ function App() {
         <section className='mainSection'>
           <Routes>
             <Route path='/' element={<Dashboard/>}/>
-            <Route path='/Home' element={<Relay/>}/>
-            <Route path='/Login' element={<Login/>}/>
+            <Route path='/devices' element={<Relay/>}/>
+            <Route path='/Login/*' element={<Login/>}/>
             <Route path='/Register/*' element={<Registration/>}/>
 
           </Routes>
