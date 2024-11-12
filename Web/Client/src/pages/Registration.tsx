@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import RegisterAsOwner from "../components/RegisterAsOwner";
-import RegisterAsPartner from "../components/RegisterAsPartner";
+import RegisterAsOwner from "../components/RegisterationComponents/RegisterAsOwner";
+import RegisterAsPartner from "../components/RegisterationComponents/RegisterAsPartner";
 
 const Registration = () => {
 

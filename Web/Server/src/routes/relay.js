@@ -62,6 +62,16 @@ router.patch("/updateRelay", async (req, res) => {
     } catch (error) {
         res.json({ status: 400, message: error.message })
     }
+});
+
+router.patch("/updateDeviceNames",async (req,res)=>{
+    try {
+        const relayModule = await HomeRelayModel.findOneAndUpdate({_id: '66f652045e49e46330c4f0b9'}, req.body
+        );
+        res.json({ status: 202, message: "Updated Relay Successfully", module: relayModule })
+    } catch (error) {
+        res.json({ status: 400, message: error.message })
+    }
 })
 
 export { router as relay }

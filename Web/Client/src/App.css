@@ -185,16 +185,25 @@
 }
 
 .turnOn {
+    /* background-color: greenyellow;
+    border: 2px solid green; */
+
+    background-color: rgb(255, 11, 11);
+    border: 2px solid rgb(128, 9, 0);
+
+}
+
+.turnOff {
+    /* background-color: rgb(255, 11, 11);
+    border: 2px solid rgb(128, 9, 0); */
+
     background-color: greenyellow;
     border: 2px solid green;
 
 }
 
-.turnOff {
-    background-color: rgb(255, 11, 11);
-    border: 2px solid rgb(128, 9, 0);
-
-
+.hidden{
+    display: none;
 }
 
 .outerSpan {
