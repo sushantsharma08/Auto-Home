@@ -42,7 +42,7 @@ const RegisterAsOwner = () => {
        const owner = await axios.post(`https://${Origin}/auth/register/as_owner`,{...formData,home_id:relay.data.id})
       //  const owner = await axios.post(`http://localhost:8000/auth/register/as_owner`,{...formData,home_id:relay.data.id})
       //  )
-      
+
        console.log(owner);
 
       };
