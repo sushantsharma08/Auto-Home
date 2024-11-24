@@ -4,6 +4,8 @@ import { useState } from "react";
 
 const RegisterAsPartner = () => {
 
+  const Origin = 'auto-home-orcin.vercel.app';
+
     const [formData, setFormData] = useState({
       name: '',
       username: '',
@@ -38,12 +40,10 @@ const RegisterAsPartner = () => {
   
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
-      // if (formData.password !== formData.confirmPassword) {
-      //   alert('Passwords do not match!');
-      // } else {
-      //   console.log('Form submitted', formData);
-      // }
-      const log = await axios.post(`http://localhost:8000/auth/register/as_partner`, formData);
+
+      // const log = await axios.post(`http://localhost:8000/auth/register/as_partner`, formData); 
+
+      const log = await axios.post(`https://${Origin}/auth/register/as_partner`, formData);
 
       console.log(log);
       

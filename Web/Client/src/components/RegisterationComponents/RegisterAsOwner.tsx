@@ -2,6 +2,10 @@ import axios from "axios";
 import { useState } from "react";
 
 const RegisterAsOwner = () => {
+
+  const Origin = 'auto-home-orcin.vercel.app';
+
+
     const [formData, setFormData] = useState({
         name: '',
         username: '',
@@ -32,12 +36,13 @@ const RegisterAsOwner = () => {
         const   relayStatus = [1,1,1,1,1,1,1,1] ;
         const relayDevices = ["DEVICE1","DEVICE2","DEVICE3","DEVICE4","DEVICE5","DEVICE6","DEVICE7","DEVICE8"];
 
-       const relay = await axios.post(`http://localhost:8000/relay/add_relay`,{ownerUsername,  relayStatus, relayDevices})
+       const relay = await axios.post(`https://${Origin}/relay/add_relay`,{ownerUsername,  relayStatus, relayDevices})
+      //  const relay = await axios.post(`http://localhost:8000/relay/add_relay`,{ownerUsername,  relayStatus, relayDevices})
       //  .then(
-       const owner = await axios.post(`http://localhost:8000/auth/register/as_owner`,{...formData,home_id:relay.data.id})
+       const owner = await axios.post(`https://${Origin}/auth/register/as_owner`,{...formData,home_id:relay.data.id})
+      //  const owner = await axios.post(`http://localhost:8000/auth/register/as_owner`,{...formData,home_id:relay.data.id})
       //  )
       
-
        console.log(owner);
 
       };

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-const Origin = 'auto-home-orcin.vercel.app'
+const Origin = 'auto-home-orcin.vercel.app';
 
 const Relay = () => {
     const home_id = localStorage.getItem("home");
