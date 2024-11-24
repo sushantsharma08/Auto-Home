@@ -7,45 +7,46 @@ const router = express.Router();
 
 router.post("/add_relay", async (req, res) => {
     const {
-        relayStatus
+     ownerUsername,  relayStatus, relayDevices
     } = req.body;
 
-    const RelayModule = await HomeRelayModel.findOne({ relayStatus });
+    const RelayModule = await HomeRelayModel.findOne({ ownerUsername });
+
     if (RelayModule) {
         return res.json({ status: 400, message: "Relay already exists" });
     }
 
     const newRelayModule = new HomeRelayModel({
-        relayStatus
+        ownerUsername, relayStatus, relayDevices
     });
 
     await newRelayModule.save()
-        .then(() => res.json({ status: 201, message: 'client added' }))
+        .then(() => res.json({ status: 201, message: 'client added', id:newRelayModule._id}))
         .catch(err => res.json(err));
 });
 
-router.post("/add_relayDevice", async (req, res) => {
-    const {
-        relayDevices
-    } = req.body;
+// router.post("/add_relayDevice", async (req, res) => {
+//     const {
+//         relayDevices
+//     } = req.body;
 
-    const RelayDeviceModule = await HomeRelayModel.findOne({ relayDevices });
-    if (RelayDeviceModule) {
-        return res.json({ status: 400, message: "Relay already exists" });
-    }
+//     const RelayDeviceModule = await HomeRelayModel.findOne({ relayDevices });
+//     if (RelayDeviceModule) {
+//         return res.json({ status: 400, message: "Relay already exists" });
+//     }
 
-    const newRelayDeviceModule = new HomeRelayModel({
-        relayDevices
-    });
+//     const newRelayDeviceModule = new HomeRelayModel({
+//         relayDevices
+//     });
 
-    await newRelayDeviceModule.save()
-        .then(() => res.json({ status: 201, message: 'client added' }))
-        .catch(err => res.json(err));
-});
+//     await newRelayDeviceModule.save()
+//         .then(() => res.json({ status: 201, message: 'client added' }))
+//         .catch(err => res.json(err));
+// });
 
-router.get("/relayStatus", async (req,res)=>{
+router.get("/relayStatus/:home_id", async (req,res)=>{
     try {
-        const relay = await HomeRelayModel.find({});
+        const relay = await HomeRelayModel.find({_id: req.params.home_id});
         res.json(relay[0])
     } catch (error) {
         res.json(error);
@@ -53,10 +54,10 @@ router.get("/relayStatus", async (req,res)=>{
     }
 })
 
-router.patch("/updateRelay", async (req, res) => {
+router.patch("/updateRelay/:home_id", async (req, res) => {
     // const { relayStatus } = req.body;
     try {
-        const relayModule = await HomeRelayModel.findOneAndUpdate({_id: '66f652045e49e46330c4f0b9'}, req.body
+        const relayModule = await HomeRelayModel.findOneAndUpdate({_id: req.params.home_id}, req.body
         );
         res.json({ status: 202, message: "Updated Relay Successfully", module: relayModule })
     } catch (error) {
@@ -64,9 +65,9 @@ router.patch("/updateRelay", async (req, res) => {
     }
 });
 
-router.patch("/updateDeviceNames",async (req,res)=>{
+router.patch("/updateDeviceNames/:home_id",async (req,res)=>{
     try {
-        const relayModule = await HomeRelayModel.findOneAndUpdate({_id: '66f652045e49e46330c4f0b9'}, req.body
+        const relayModule = await HomeRelayModel.findOneAndUpdate({_id: req.params.home_id}, req.body
         );
         res.json({ status: 202, message: "Updated Relay Successfully", module: relayModule })
     } catch (error) {

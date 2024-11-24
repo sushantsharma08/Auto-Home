@@ -7,6 +7,7 @@ import * as dotenv from "dotenv";
 
 import { HomePartnerRouter } from "./src/routes/homePartner.js";
 import { relay } from "./src/routes/relay.js";
+import { userRouter } from "./src/routes/userRoutes.js";
 
 const app = express();
 dotenv.config();
@@ -25,7 +26,7 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS
 // Define routes and middleware
 app.use("/auth",HomePartnerRouter);
 app.use("/relay",relay);
-
+app.use("/user",userRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 
@@ -8,9 +9,10 @@ const RegisterAsPartner = () => {
       username: '',
       email: '',
       password: '',
-      confirmPassword: '',
-      phoneNumber: '',
+      // confirmPassword: '',
+      phone: '',
       home_id: '',
+      
     });
   
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,15 +27,28 @@ const RegisterAsPartner = () => {
       //   console.log('Form submitted', formData);
       // }
     };
-  
-    const handleSubmit = (e: React.FormEvent) => {
-      e.preventDefault();
-      if (formData.password !== formData.confirmPassword) {
-        alert('Passwords do not match!');
-      } else {
-        console.log('Form submitted', formData);
+
+    const checkPasswords = (e:React.ChangeEvent<HTMLInputElement>)=>{
+      console.log(e.target.value);
+      
+      if (e.target.value != formData.password) {
+        
       }
+    }
+  
+    const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      // if (formData.password !== formData.confirmPassword) {
+      //   alert('Passwords do not match!');
+      // } else {
+      //   console.log('Form submitted', formData);
+      // }
+      const log = await axios.post(`http://localhost:8000/auth/register/as_partner`, formData);
+
+      console.log(log);
+      
     };
+
 
 
   return (
@@ -94,19 +109,19 @@ const RegisterAsPartner = () => {
               type="password"
               id="confirmPassword"
               name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
+              // value=""
+              onChange={checkPasswords}
               required
             />
           </div>
 
           <div className="input-group">
-            <label htmlFor="phoneNumber">Phone Number</label>
+            <label htmlFor="phone">Phone Number</label>
             <input
               type="text"
-              id="phoneNumber"
-              name="phoneNumber"
-              value={formData.phoneNumber}
+              id="phone"
+              name="phone"
+              value={formData.phone}
               onChange={handleChange}
               required
             />

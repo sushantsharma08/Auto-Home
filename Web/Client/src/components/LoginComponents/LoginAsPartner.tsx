@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import {useState } from "react";
 
 const LoginAsPartner = () => {
     const [formData, setFormData] = useState({
@@ -16,14 +16,41 @@ const LoginAsPartner = () => {
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
-        console.log('hey');
-        
-        e.preventDefault();
-        const log = await axios.post('http://localhost:8000/auth/login/as_partner',formData);
-        console.log(log);
-        
-    };
 
+        e.preventDefault();
+        // const log = await axios.post('https://auto-home-orcin.vercel.app/auth/login/as_partner',formData)
+
+         await axios.post('http://localhost:8000/auth/login/as_partner', formData)
+
+            .then(
+                async (res) => {
+                    //a sve token in localstorage !!!!! (change this meathod of storage).
+                    localStorage.setItem("token", res.data?.token);
+
+                    // retrieve homeID,userID based on token
+                         await axios.get("http://localhost:8000/user/homeid", {
+                            headers: {
+                                'Authorization': `Bearer ${res.data?.token}`,
+                            }
+                        }).then((res)=>{ 
+                    //a sve data in localstorage !!!!! (change this meathod of storage).
+
+                        localStorage.setItem("home",res.data?.home_id,);
+                        localStorage.setItem("user",res.data?.user_id);
+                        
+                        return res;
+                    });
+                    window.location.href = "/devices"
+                    return res
+                }
+            );
+        // if (log.data.token) {
+        // localStorage.setItem("token",log.data.token);
+        // }else{
+        //     alert('username or password invalid')
+        // }
+
+    };
 
     return (
         <div className="form-box">

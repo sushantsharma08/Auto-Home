@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 const LoginAsOwner = () => {
@@ -14,8 +15,18 @@ const LoginAsOwner = () => {
         });
       };
     
-      const handleSubmit = (e: React.FormEvent) => {
+      const handleSubmit = async(e: React.FormEvent) => {
         e.preventDefault();
+
+       
+        // const log = await axios.post('http://localhost:8000/auth/login/as_owner',formData).then(
+
+        // );
+        // const log = await axios.post('https://auto-home-orcin.vercel.app/auth/login/as_partner',formData);
+/*         if (log.data.status === 403) {
+          alert(log.data.message) */
+      // }
+        // console.log(log);
 
       };
   

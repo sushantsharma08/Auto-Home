@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 const RegisterAsOwner = () => {
@@ -7,7 +8,7 @@ const RegisterAsOwner = () => {
         email: '',
         password: '',
         confirmPassword: '',
-        phoneNumber: '',
+        phone: '',
         home_id: '',
       });
     
@@ -24,13 +25,21 @@ const RegisterAsOwner = () => {
         // }
       };
     
-      const handleSubmit = (e: React.FormEvent) => {
+      const handleSubmit = async(e: React.FormEvent) => {
         e.preventDefault();
-        if (formData.password !== formData.confirmPassword) {
-          alert('Passwords do not match!');
-        } else {
-          console.log('Form submitted', formData);
-        }
+
+        const ownerUsername = formData.username;
+        const   relayStatus = [1,1,1,1,1,1,1,1] ;
+        const relayDevices = ["DEVICE1","DEVICE2","DEVICE3","DEVICE4","DEVICE5","DEVICE6","DEVICE7","DEVICE8"];
+
+       const relay = await axios.post(`http://localhost:8000/relay/add_relay`,{ownerUsername,  relayStatus, relayDevices})
+      //  .then(
+       const owner = await axios.post(`http://localhost:8000/auth/register/as_owner`,{...formData,home_id:relay.data.id})
+      //  )
+      
+
+       console.log(owner);
+
       };
   
   
@@ -99,12 +108,12 @@ const RegisterAsOwner = () => {
             </div>
   
             <div className="input-group">
-              <label htmlFor="phoneNumber">Phone Number</label>
+              <label htmlFor="phone">Phone Number</label>
               <input
                 type="text"
-                id="phoneNumber"
-                name="phoneNumber"
-                value={formData.phoneNumber}
+                id="phone"
+                name="phone"
+                value={formData.phone}
                 onChange={handleChange}
                 required
               />
