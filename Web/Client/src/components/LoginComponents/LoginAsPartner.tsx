@@ -2,6 +2,9 @@ import axios from "axios";
 import {useState } from "react";
 
 const LoginAsPartner = () => {
+
+  const Origin = 'auto-home-orcin.vercel.app';
+    
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -20,7 +23,8 @@ const LoginAsPartner = () => {
         e.preventDefault();
         // const log = await axios.post('https://auto-home-orcin.vercel.app/auth/login/as_partner',formData)
 
-         await axios.post('http://localhost:8000/auth/login/as_partner', formData)
+         await axios.post(`https://${Origin}/auth/login/as_partner`, formData)
+        //  await axios.post('http://localhost:8000/auth/login/as_partner', formData)
 
             .then(
                 async (res) => {
@@ -28,7 +32,8 @@ const LoginAsPartner = () => {
                     localStorage.setItem("token", res.data?.token);
 
                     // retrieve homeID,userID based on token
-                         await axios.get("http://localhost:8000/user/homeid", {
+                         await axios.get(`https://${Origin}/user/homeid`, {
+                        //  await axios.get("http://localhost:8000/user/homeid", {
                             headers: {
                                 'Authorization': `Bearer ${res.data?.token}`,
                             }
