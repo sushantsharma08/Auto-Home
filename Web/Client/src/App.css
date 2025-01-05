@@ -5,6 +5,353 @@
 
 }
 
+/* intro */
+
+.hive-text {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #070a0c;
+    font-size: 20px;
+}
+
+.slide-top {
+    -webkit-animation: slide-top 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-top 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+/* @-webkit-keyframes slide-top {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+    100% {
+      -webkit-transform: translateY(-100px);
+              transform: translateY(-100px);
+    }
+  } */
+
+@keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(200px);
+        transform: translateY(200px);
+
+    }
+
+    50% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+
+    }
+
+    51% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+
+    }
+    70%{
+        text-shadow:
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 30px #36827F,
+        0 0 40px #36827F,
+        0 0 50px #36827F,
+        0 0 60px #36827F,
+        0 0 70px #36827F;
+    }
+
+    100% {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+        -webkit-filter: blur(4px);
+        filter: blur(4px);
+        opacity: 0;
+        text-shadow:
+            0 0 20px #fff,
+            0 0 30px #3CA69A,
+            0 0 40px #3CA69A,
+            0 0 50px #3CA69A,
+            0 0 60px #3CA69A,
+            0 0 70px #3CA69A,
+            0 0 80px #3CA69A;
+    }
+}
+/* background */
+.flicker-out-1 {
+	-webkit-animation: flicker-out-1 2s linear both;
+	        animation: flicker-out-1 2s linear both;
+            animation-delay: 2.1s;
+}
+@-webkit-keyframes flicker-out-1 {
+    0% {
+      opacity: 1;
+    }
+    13.9% {
+      opacity: 1;
+    }
+    14% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    14.9% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    15% {
+      opacity: 1;
+    }
+    22.9% {
+      opacity: 1;
+    }
+    23% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    24.9% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    25% {
+      opacity: 1;
+    }
+    34.9% {
+      opacity: 1;
+    }
+    35% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    39.9% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    40% {
+      opacity: 1;
+    }
+    42.9% {
+      opacity: 1;
+    }
+    43% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    44.9% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    45% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    54.9% {
+      opacity: 1;
+    }
+    55% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    69.4% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    69.5% {
+      opacity: 1;
+    }
+    69.9% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    79.4% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    79.9% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    89.8% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    89.9% {
+      opacity: 1;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    90% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    100% {
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+  @keyframes flicker-out-1 {
+    0% {
+      opacity: 1;
+    }
+    13.9% {
+      opacity: 1;
+    }
+    14% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    14.9% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    15% {
+      opacity: 1;
+    }
+    22.9% {
+      opacity: 1;
+    }
+    23% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    24.9% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    25% {
+      opacity: 1;
+    }
+    34.9% {
+      opacity: 1;
+    }
+    35% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    39.9% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    40% {
+      opacity: 1;
+    }
+    42.9% {
+      opacity: 1;
+    }
+    43% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    44.9% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    45% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    54.9% {
+      opacity: 1;
+    }
+    55% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    69.4% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    69.5% {
+      opacity: 1;
+    }
+    69.9% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    79.4% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    79.9% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    89.8% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    89.9% {
+      opacity: 1;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    90% {
+      opacity: 0;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+              z-index: 1;
+    }
+    100% {
+      opacity: 0;
+      z-index: -1;
+      display: none;
+    }
+  }
+
+
+
+
+
+
 input {
     /* background-color: rgb(13, 13, 13); */
     background-color: #2f2f2f;
@@ -32,9 +379,11 @@ input {
     transition: 0.8s;
 
 }
-.active{
-    color:#219ebc;
-    text-shadow: 2px 2px 4px #132934;;
+
+.active {
+    color: #219ebc;
+    text-shadow: 2px 2px 4px #132934;
+    ;
 }
 
 .mainSection {
@@ -49,14 +398,51 @@ input {
 }
 
 /* home-dashboard */
-.dashboard-welcome{
+.dashboard-welcome {
     text-align: center;
 }
-.dashboard-welcome-message{
+
+.dashboard-welcome-message {
     font-size: xx-large;
+    font-family: monospace;
 }
+/* .hive-dashboard{
+
+} */
+
+.glow {
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes glow {
+    from {
+        text-shadow:
+        /* 0 0 4px #000000, */
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #36827F,
+        0 0 20px #36827F,
+        0 0 25px #36827F,
+        0 0 30px #36827F,
+        0 0 35px #36827F;
+    }
+    to {
+        text-shadow:
+        /* 0 0 8px #000000, */
+        0 0 10px #dafdfc,
+        0 0 15px #3CA69A,
+        0 0 20px #3CA69A,
+        0 0 25px #3CA69A,
+        0 0 30px #3CA69A,
+        0 0 30px #3CA69A,
+        0 0 30px #3CA69A;
+    }
+  }
 
 
+  
 
 /* Registration/login section */
 .header {
@@ -76,7 +462,7 @@ input {
     margin-bottom: 20px;
     /* color: #8f8f8f; */
     color: #284B63;
-    font-family:serif;
+    font-family: serif;
 }
 
 .account_type {
@@ -221,13 +607,15 @@ input {
     border-radius: 200px;
     transition: ease-in-out 0.2s;
 }
-.device-edit-input{
-border: none;
-outline: 1px solid #4a5762;
-padding-block: 2px;
-padding-inline: 7px;
-width: 150px;
+
+.device-edit-input {
+    border: none;
+    outline: 1px solid #4a5762;
+    padding-block: 2px;
+    padding-inline: 7px;
+    width: 150px;
 }
+
 .device-edit-btn {
     background-color: #272d2d;
     outline: none;
@@ -294,3 +682,12 @@ width: 150px;
 
 
 /* add twinkles  */
+
+@media only screen and (max-width: 600px) {
+    .dashboard-welcome-message{
+        font-size: 14px;
+    }
+    .dashboard-catchphrase{
+        font-size: 12px;
+    }
+}
