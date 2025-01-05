@@ -8,7 +8,7 @@ const useGetUserid = async (token:string|null): Promise<string | null> => {
     console.log(token);
 
     const [Id, setId] = useState<string | null>(null);
-    const userID = await axios.get(`http://${Origin}/user/homeid`, {
+    const userID = await axios.get(`https://${Origin}/user/homeid`, {
     // const userID = await axios.get("http://localhost:8000/user/homeid", {
         headers: {
             'Authorization': `Bearer ${token}`,

@@ -14,7 +14,6 @@ const RegisterAsPartner = () => {
       // confirmPassword: '',
       phone: '',
       home_id: '',
-      
     });
   
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

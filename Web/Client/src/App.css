@@ -1,32 +1,62 @@
 .app {
-    height: 100vh;
+    min-height: 100vh;
+    /* background-color: rgb(10, 10, 10); */
+    background-color: #212121;
+
+}
+
+input {
+    /* background-color: rgb(13, 13, 13); */
+    background-color: #2f2f2f;
 }
 
 .navbar {
     display: flex;
     justify-content: center;
+    padding-block: 1rem;
+    align-items: center;
+    font-size: 17px;
+    font-family: monospace;
+    font-weight: 600;
 }
 
 .navbar div {
-    padding-inline: 20px;
+    padding-inline: 10px;
     padding-block: 10px;
 }
 
 .navItem {
-    color: white;
+    color: #0e404d;
     font-style: none;
     text-decoration: none;
+    transition: 0.8s;
+
+}
+.active{
+    color:#219ebc;
+    text-shadow: 2px 2px 4px #132934;;
 }
 
 .mainSection {
     margin-inline: 20px;
     border-inline: 2px solid;
     border-top: 2px solid;
-    border-color: rgb(91, 91, 91);
+    /* border-color: rgb(91, 91, 91); */
+    border-color: #272d2d;
     padding: 10px;
     padding-block: 50px;
     /* min-height: 90%; */
 }
+
+/* home-dashboard */
+.dashboard-welcome{
+    text-align: center;
+}
+.dashboard-welcome-message{
+    font-size: xx-large;
+}
+
+
 
 /* Registration/login section */
 .header {
@@ -41,9 +71,12 @@
 
 .heading {
     text-align: center;
-    font-size: xx-large;
+    font-size: xxx-large;
+    font-weight: 600;
     margin-bottom: 20px;
-    color: #8f8f8f;
+    /* color: #8f8f8f; */
+    color: #284B63;
+    font-family:serif;
 }
 
 .account_type {
@@ -175,6 +208,11 @@
 
 
 /* RElay devices control section */
+.relay-device-name {
+    /* font-size: large; */
+    color: #fefae0;
+}
+
 .deviceBtn {
     /* padding: 0.5rem; */
     outline: none;
@@ -183,13 +221,26 @@
     border-radius: 200px;
     transition: ease-in-out 0.2s;
 }
+.device-edit-input{
+border: none;
+outline: 1px solid #4a5762;
+padding-block: 2px;
+padding-inline: 7px;
+width: 150px;
+}
+.device-edit-btn {
+    background-color: #272d2d;
+    outline: none;
+    border: none;
+}
 
 .turnOn {
     /* background-color: greenyellow;
     border: 2px solid green; */
 
-    background-color: rgb(255, 11, 11);
-    border: 2px solid rgb(128, 9, 0);
+    /* background-color: rgb(255, 11, 11); */
+    background-color: #c95b17;
+    border: 2px solid rgb(210, 100, 4);
 
 }
 
@@ -197,12 +248,13 @@
     /* background-color: rgb(255, 11, 11);
     border: 2px solid rgb(128, 9, 0); */
 
-    background-color: greenyellow;
+    /* background-color: #99ac58; */
+    background-color: rgb(147, 216, 42);
     border: 2px solid green;
 
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
@@ -242,5 +294,3 @@
 
 
 /* add twinkles  */
-
-

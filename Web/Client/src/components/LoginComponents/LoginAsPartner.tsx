@@ -1,10 +1,11 @@
 import axios from "axios";
-import {useState } from "react";
+import toast, { Toaster } from 'react-hot-toast';
+import { useState } from "react";
 
 const LoginAsPartner = () => {
 
-  const Origin = 'auto-home-orcin.vercel.app';
-    
+    const Origin = 'auto-home-orcin.vercel.app';
+
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -23,8 +24,9 @@ const LoginAsPartner = () => {
         e.preventDefault();
         // const log = await axios.post('https://auto-home-orcin.vercel.app/auth/login/as_partner',formData)
 
-         await axios.post(`https://${Origin}/auth/login/as_partner`, formData)
-        //  await axios.post('http://localhost:8000/auth/login/as_partner', formData)
+        toast.loading("Logging in ...");
+        await axios.post(`https://${Origin}/auth/login/as_partner`, formData)
+            //  await axios.post('http://localhost:8000/auth/login/as_partner', formData)
 
             .then(
                 async (res) => {
@@ -32,19 +34,21 @@ const LoginAsPartner = () => {
                     localStorage.setItem("token", res.data?.token);
 
                     // retrieve homeID,userID based on token
-                         await axios.get(`https://${Origin}/user/homeid`, {
+                    await axios.get(`https://${Origin}/user/homeid`, {
                         //  await axios.get("http://localhost:8000/user/homeid", {
-                            headers: {
-                                'Authorization': `Bearer ${res.data?.token}`,
-                            }
-                        }).then((res)=>{ 
-                    //a sve data in localstorage !!!!! (change this meathod of storage).
+                        headers: {
+                            'Authorization': `Bearer ${res.data?.token}`,
+                        }
+                    }).then((res) => {
+                        //a sve data in localstorage !!!!! (change this meathod of storage).
 
-                        localStorage.setItem("home",res.data?.home_id,);
-                        localStorage.setItem("user",res.data?.user_id);
-                        
+                        localStorage.setItem("home", res.data?.home_id,);
+                        localStorage.setItem("user", res.data?.user_id);
+                        localStorage.setItem("isAuthenticated", "true");
+
                         return res;
                     });
+                    toast.success("Logged in!")
                     window.location.href = "/devices"
                     return res
                 }
@@ -58,39 +62,43 @@ const LoginAsPartner = () => {
     };
 
     return (
-        <div className="form-box">
-            <form onSubmit={handleSubmit}>
+        <>
+            <div className="form-box">
+                <form onSubmit={handleSubmit}>
 
 
-                <div className="input-group">
-                    <label htmlFor="username">Username</label>
-                    <input
-                        type="text"
-                        id="username"
-                        name="username"
-                        value={formData.username}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
+                    <div className="input-group">
+                        <label htmlFor="username">Username</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            value={formData.username}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
 
 
-                <div className="input-group">
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
+                    <div className="input-group">
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
 
-                <button type="submit" className="btn">Login(as partner)</button>
-                {/* <button type="submit">h</button> */}
-            </form>
-        </div>
+                    <button type="submit" className="btn">Login(as partner)</button>
+                    {/* <button type="submit">h</button> */}
+                </form>
+                <Toaster reverseOrder={false} />
+            </div>
+
+        </>
     )
 }
 

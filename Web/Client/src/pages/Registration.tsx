@@ -5,7 +5,7 @@ import RegisterAsPartner from "../components/RegisterationComponents/RegisterAsP
 
 const Registration = () => {
 
-  const [isOwner, setIsOwner] = useState(true);
+  const [isOwner, setIsOwner] = useState(null||Boolean);
 
   const handleAccount = (e: any) => {
     if (e.target.className === 'owner') {
@@ -43,7 +43,6 @@ const Registration = () => {
         <Route path="asOwner" element={<RegisterAsOwner />} />
         <Route path="asPartner" element={<RegisterAsPartner />} />
       </Routes>
-
     </div>
   );
 }

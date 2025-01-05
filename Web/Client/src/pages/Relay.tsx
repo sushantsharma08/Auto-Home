@@ -7,7 +7,7 @@ const Relay = () => {
     const home_id = localStorage.getItem("home");
 
     const { isLoading, error, data: Relay, refetch } = useQuery({
-        queryKey: ['key'],
+        queryKey: ['relay'],
         queryFn: () => {
             // return axios.get(`http://localhost:8000/relay/relayStatus/${home_id}`)
             return axios.get(`https://${Origin}/relay/relayStatus/${home_id}`)
@@ -118,17 +118,17 @@ const Relay = () => {
                 {Relay?.data.relayStatus?.map((relay: any, index: any) =>
                     <>
                         <div style={{ textAlign: "center", color: "grey", display: "flex", width: "300px", justifyContent: "space-between", }}>
-                            <h2 id={`title${index}`}>{Relay?.data.relayDevices[index]}</h2>
+                            <h2 className="relay-device-name" id={`title${index}`}>{Relay?.data.relayDevices[index]}</h2>
 
-                            <input id={`input${index}`} className="hidden" type="text" name={index} style={{ color: "white", height: "30px", marginLeft: "30px" }} />
+                            <input id={`input${index}`} className="hidden device-edit-input" type="text" name={index} style={{ color: "white", height: "30px", marginLeft: "30px" }} />
 
-                            <button id={`edit${index}`} name={index} className="editBtn" style={{ color: "white", padding: "5px" }}
+                            <button id={`edit${index}`} name={index} className="editBtn device-edit-btn" style={{ color: "white", padding: "5px" }}
                                 onClick={e => editClicked(e)}
                             >Edit</button>
-                            <button id={`cancelBtn${index}`} name={index} className="cancelBtn hidden" style={{ color: "white", padding: "5px" }}
+                            <button id={`cancelBtn${index}`} name={index} className="cancelBtn hidden device-edit-btn" style={{ color: "white", padding: "5px" }}
                                 onClick={e => cancelClicked(e)}
                             >Cancel</button>
-                            <button id={`save${index}`} name={index} className="saveBtn hidden" style={{ color: "white", padding: "5px" }} type="button"
+                            <button id={`save${index}`} name={index} className="saveBtn hidden device-edit-btn" style={{ color: "white", padding: "5px" }} type="button"
                                 onClick={e => saveClicked(e)}
                             >Save</button>
                         </div>
