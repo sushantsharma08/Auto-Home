@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-    const [isAuthenticated, setisAuthenticated] = useState(null || Boolean)
+    const [isAuthenticated, setisAuthenticated] = useState( Boolean)
 
     setInterval(() => {
         let loc = Boolean(localStorage.getItem("isAuthenticated"));

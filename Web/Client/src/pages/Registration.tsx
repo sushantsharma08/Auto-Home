@@ -5,7 +5,7 @@ import RegisterAsPartner from "../components/RegisterationComponents/RegisterAsP
 
 const Registration = () => {
 
-  const [isOwner, setIsOwner] = useState(null||Boolean);
+  const [isOwner, setIsOwner] = useState(Boolean);
 
   const handleAccount = (e: any) => {
     if (e.target.className === 'owner') {
