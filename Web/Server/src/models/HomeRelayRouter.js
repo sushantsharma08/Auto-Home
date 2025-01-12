@@ -5,7 +5,8 @@ const HomeRelaySchema = new mongoose.Schema({
     relayStatus : {type:Array,required:true},
     relayDevices : {type:Array,required:true},
     owners:{type:Array,required:false},
-    partners:{type:Array,required:false}
+    partners:{type:Array,required:false},
+    // tempratureLogs:{type:Object,required:false}
     // home_id : {type:String, required:true}
 });
 

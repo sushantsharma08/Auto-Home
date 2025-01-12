@@ -113,25 +113,26 @@ const Relay = () => {
     }
 
     return (
-        <section style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <div>
+        <section >
+            <div style={{ display: "flex", flexWrap:"wrap",justifyContent:"center", alignItems: "center" }}>
                 {Relay?.data.relayStatus?.map((relay: any, index: any) =>
-                    <>
-                        <div style={{ textAlign: "center", color: "grey", display: "flex", width: "300px", justifyContent: "space-between", }}>
+                    <div style={{border:"0.1px solid grey",margin:"10px", padding:"25px",paddingInline:"15px"}}>
+                        <div style={{ textAlign: "center", color: "grey", width: "300px", display: "flex", justifyContent:"space-between", }}>
                             <h2 className="relay-device-name" id={`title${index}`}>{Relay?.data.relayDevices[index]}</h2>
 
                             <input id={`input${index}`} className="hidden device-edit-input" type="text" name={index} style={{ color: "white", height: "30px", marginLeft: "30px" }} />
 
-                            <button id={`edit${index}`} name={index} className="editBtn device-edit-btn" style={{ color: "white", padding: "5px" }}
+                            <button id={`edit${index}`} name={index} className="editBtn device-edit-btn" style={{justifySelf:"end", color: "white", padding: "5px" }}
                                 onClick={e => editClicked(e)}
                             >Edit</button>
-                            <button id={`cancelBtn${index}`} name={index} className="cancelBtn hidden device-edit-btn" style={{ color: "white", padding: "5px" }}
+                            <button id={`cancelBtn${index}`} name={index} className="cancelBtn hidden device-edit-btn" style={{justifySelf:"end", color: "white", padding: "5px" }}
                                 onClick={e => cancelClicked(e)}
                             >Cancel</button>
-                            <button id={`save${index}`} name={index} className="saveBtn hidden device-edit-btn" style={{ color: "white", padding: "5px" }} type="button"
+                            <button id={`save${index}`} name={index} className="saveBtn hidden device-edit-btn" style={{justifySelf:"end", color: "white", padding: "5px" }} type="button"
                                 onClick={e => saveClicked(e)}
                             >Save</button>
                         </div>
+                        <hr style={{marginTop:"17px",border:"0.5px solid grey"}} />
                         <div key={index}
                             style={{ height: "150px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}
                         >
@@ -147,7 +148,8 @@ const Relay = () => {
                                 </button>
                             }
                         </div>
-                    </>
+
+                    </div>
                 )}
             </div>
 
