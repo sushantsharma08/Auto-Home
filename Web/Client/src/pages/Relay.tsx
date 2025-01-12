@@ -116,7 +116,7 @@ const Relay = () => {
         <section >
             <div style={{ display: "flex", flexWrap:"wrap",justifyContent:"center", alignItems: "center" }}>
                 {Relay?.data.relayStatus?.map((relay: any, index: any) =>
-                    <div style={{border:"0.1px solid grey",margin:"10px", padding:"25px",paddingInline:"15px"}}>
+                    <div style={{border:"0.1px solid grey",borderInlineColor:"rgba(88, 88, 88, 0.199)",margin:"10px", padding:"25px",paddingInline:"5px"}}>
                         <div style={{ textAlign: "center", color: "grey", width: "300px", display: "flex", justifyContent:"space-between", }}>
                             <h2 className="relay-device-name" id={`title${index}`}>{Relay?.data.relayDevices[index]}</h2>
 
