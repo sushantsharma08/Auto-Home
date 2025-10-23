@@ -24,8 +24,8 @@ int RELAY_STAT[8] = {1,1,1,1,1,1,1,1}; // 1=OFF (HIGH in your wiring), 0=ON (LOW
 const int wifiStatus = 2; // status LED pin
 
 // OTA URLs (replace <user>/<repo> with your GitHub repo)
-const String remoteVersionUrl = "https://raw.githubusercontent.com/sushantsharma08/Auto-Home/main/releases/version.txt";
-const String remoteBinUrl     = "https://raw.githubusercontent.com/sushantsharma08/Auto-Home/main/releases/firmware.bin";
+const String remoteVersionUrl = "https://raw.githubusercontent.com/sushantsharma08/Auto-Home/refs/heads/main/ESP/releases/version.txt";
+const String remoteBinUrl     = "https://raw.githubusercontent.com/sushantsharma08/Auto-Home/refs/heads/main/ESP/releases/firmware.bin";
 
 OtaUpdater ota(remoteVersionUrl, remoteBinUrl);
 
@@ -250,6 +250,12 @@ void loop() {
       ota.checkForUpdate(false);
     }
 
+    Serial.print("Updated from Github");
+    Serial.print("Updated from Github");
+    Serial.print("Updated from Github");
+    Serial.print("Updated from Github");
+    Serial.print("Updated from Github");
+    Serial.print("Updated from Github");
     Serial.print("Updated from Github");
 
     delay(200); // small pause to keep loop friendly
