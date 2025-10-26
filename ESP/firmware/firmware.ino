@@ -7,7 +7,7 @@
 #include "ota_updater.h"
 
 // DHT
-#define DHTPIN 21
+#define DHTPIN 13
 #define DHTTYPE DHT11
 DHT dht(DHTPIN, DHTTYPE);
 
@@ -18,7 +18,7 @@ const unsigned long retryInterval = 10000; // Retry every 10 seconds
 const uint32_t connectTimeoutMs = 5000;
 
 // Relays
-const int RELAY_PINS[] = {32, 33, 25, 26, 27, 14, 12, 13};
+const int RELAY_PINS[] = {35, 32, 33, 25, 26, 27, 14, 12};
 const int pinCount = sizeof(RELAY_PINS) / sizeof(RELAY_PINS[0]);
 int RELAY_STAT[8] = {1, 1, 1, 1, 1, 1, 1, 1}; // 1=OFF (HIGH in your wiring), 0=ON (LOW)
 const int wifiStatus = 2;                     // status LED pin
