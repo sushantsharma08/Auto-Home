@@ -7,7 +7,7 @@
 #include "ota_updater.h"
 
 // DHT
-#define DHTPIN 35
+#define DHTPIN 21
 #define DHTTYPE DHT11
 DHT dht(DHTPIN, DHTTYPE);
 
